@@ -25,9 +25,7 @@ const download = (job, settings, asset) => {
         /* ^ remove possible query search string params ^ */;
 
         /* prevent same name file collisions */
-        if (fs.existsSync(path.join(job.workpath, destName))) {
-            destName = Math.random().toString(36).substring(2) + '.' + path.extname(asset.src);
-        }
+        destName = Math.random().toString(36).substring(2) + '.' + path.extname(asset.src);
     }
 
     if (asset.extension) {

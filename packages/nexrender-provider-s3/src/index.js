@@ -21,11 +21,6 @@ const s3instanceWithRegion = region => {
 
 /* define public methods */
 const download = (job, settings, src, dest, params, type) => {
-    src = src.replace('s3://', 'http://')
-
-    if (src.indexOf('digitaloceanspaces.com') !== -1) {
-        throw new Error('nexrender: Digital Ocean Spaces is not yet supported by the package: amazon-s3-uri')
-    }
 
     const parsed = uri(src)
     const file = fs.createWriteStream(dest);
