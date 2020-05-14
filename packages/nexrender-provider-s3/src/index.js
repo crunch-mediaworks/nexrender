@@ -91,6 +91,10 @@ const upload = (job, settings, src, params) => {
             Body: file,
         }
 
+        if(params.contentType){
+            awsParams.ContentType = params.contentType;
+        }
+
         s3instanceWithRegion(params.region)
             .upload(awsParams, (err, data) => {
                 if (err) {
